@@ -29,7 +29,7 @@ To run this project, follow these steps:
 
 The following is a screenshot of the Electron application screen after logging in and clicking the *Get Private Message* button:
 
-![The Electron App](./the-final-electron-app.png)
+![The Electron App](./output.png)
 
 [Read more](https://auth0.com/blog/securing-electron-applications-with-openid-connect-and-oauth-2/)
 
