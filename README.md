@@ -27,7 +27,7 @@ To run this project, follow these steps:
 8. Rename the `env-variables.json.template` config file into `env-variables.json` and fill the required Auth0 parameters
 9. Launch the Electron app by running `npm start`
 
-The following is a screenshot of the Electron application screen after logging in and clicking the *Get Private Message* button:
+<!-- The following is a screenshot of the Electron application screen after logging in and clicking the *Get Private Message* button: -->
 
 ![The Electron App](./output.png)
 
