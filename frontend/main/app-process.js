@@ -9,7 +9,7 @@ function createAppWindow() {
       enableRemoteModule: true
     }
   });
-
+  win.maximize();  //window will take it's maximum size
   win.loadFile('./renderers/home.html');
 
   win.on('closed', () => {

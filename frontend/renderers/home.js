@@ -17,16 +17,16 @@ document.getElementById('logout').onclick = () => {
   remote.getCurrentWindow().close();
 };
 
-document.getElementById('secured-request').onclick = () => {
-  axios.get('http://localhost:3000/private', {
-    headers: {
-      'Authorization': `Bearer ${authService.getAccessToken()}`,
-    },
-  }).then((response) => {
-    const messageJumbotron = document.getElementById('message');
-    messageJumbotron.innerText = response.data;
-    messageJumbotron.style.display = 'block';
-  }).catch((error) => {
-    if (error) throw new Error(error);
-  });
-};
+// document.getElementById('secured-request').onclick = () => {
+//   axios.get('http://localhost:3000/private', {
+//     headers: {
+//       'Authorization': `Bearer ${authService.getAccessToken()}`,
+//     },
+//   }).then((response) => {
+//     const messageJumbotron = document.getElementById('message');
+//     messageJumbotron.innerText = response.data;
+//     messageJumbotron.style.display = 'block';
+//   }).catch((error) => {
+//     if (error) throw new Error(error);
+//   });
+// };
