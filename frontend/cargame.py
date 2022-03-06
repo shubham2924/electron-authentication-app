@@ -14,8 +14,8 @@ def code():
 
     #*******************--------------------****************#
     # using subprocess inbuilt module for concurrent running of python files
-    process1 = subprocess.Popen(["python", "game.py"])
-    process2 = subprocess.Popen(["python", "snake.py"])
+    process1 = subprocess.Popen(["python", "camera.py"])
+    process2 = subprocess.Popen(["python", "main.py"])
     process1()
     process2()
     

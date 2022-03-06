@@ -1,4 +1,4 @@
-const {app} = require('electron');
+const {app, ipcMain} = require('electron');
 const { MongoClient } = require("mongodb");
 const {createAuthWindow} = require('./main/auth-process');
 const createAppWindow = require('./main/app-process');
@@ -7,6 +7,10 @@ const uri = "mongodb+srv://mongo:mongo@cluster0.rrzcd.mongodb.net/mongotrondb?re
 const client = new MongoClient(uri);
 const dbName = "mongotrondb";
 
+ipcMain.on("name",(program, data)=>{
+  // console.log(data);
+  username = data;
+})
 // function getCloseTime(){
 // var today = new Date();
 // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -26,9 +30,15 @@ async function run_start() {    //function to get and send the start time
       const db = client.db(dbName);
        // Use the collection "people"
       const col = db.collection("mongotroncol");
+      // ipcMain.on("name",(program, dataa)=>{
+      //   console.log("^&^%%&^*&&%%^%^&%^%^^");
+      //   console.log(dataa);
+      //   username = dataa;
+      // })
       let personDocument = {
         "name" : "app start time",
-        "start time" : dateTime
+        "start time" : dateTime,
+        // "user name" : username
       }
        // Insert a single document, wait for promise so we can read it back
        const p = await col.insertOne(personDocument);
@@ -58,7 +68,8 @@ async function run_close() {      //function to get and send the close time
       const col = db.collection("mongotroncol");
       let personDocument = {
         "name" : "app close time",
-        "start time" : dateTime
+        "start time" : dateTime,
+        "user name" : username
       }
        // Insert a single document, wait for promise so we can read it back
        const p = await col.insertOne(personDocument);

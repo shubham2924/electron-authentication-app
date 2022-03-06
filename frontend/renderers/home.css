@@ -27,3 +27,19 @@ div.profile img {
 div#message {
   display: none;
 }
+
+.adbar{
+  /* display: block; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* left: 50%; */
+  right: 30%;
+  bottom: 30px;
+  position: fixed;
+}
+
+h1{
+  justify-content: center;
+  align-items: center;
+  text-align:center
+}
