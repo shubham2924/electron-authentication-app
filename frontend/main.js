@@ -1,5 +1,5 @@
 const {app, ipcMain} = require('electron');
-const { MongoClient } = require("mongodb");
+const { MongoClient,ObjectId } = require("mongodb");
 const {createAuthWindow} = require('./main/auth-process');
 const createAppWindow = require('./main/app-process');
 const authService = require('./services/auth-service');
@@ -18,7 +18,7 @@ ipcMain.on("name",(program, data)=>{
 // var dateTime = date+' '+time;
 //   console.log(dateTime);
 // }
-
+let doc_id="";
 async function run_start() {    //function to get and send the start time
   try {
       await client.connect();
@@ -37,7 +37,7 @@ async function run_start() {    //function to get and send the start time
       // })
       let personDocument = {
         "name" : "app start time",
-        "start time" : dateTime,
+        "starttime" : dateTime,
         // "user name" : username
       }
        // Insert a single document, wait for promise so we can read it back
@@ -46,6 +46,8 @@ async function run_start() {    //function to get and send the start time
        //const myDoc = await col.findOne();
        // Print to the console
        console.log(p);
+       doc_id = p.insertedId.toString();
+       console.log(doc_id);
 
 
   } catch (err) {
@@ -56,7 +58,7 @@ async function run_start() {    //function to get and send the start time
   }
 }
 
-async function run_close() {      //function to get and send the close time
+async function run_close(doc_id) {      //function to get and send the close time
   try {
       await client.connect();
       console.log("Connected correctly to server");
@@ -66,17 +68,23 @@ async function run_close() {      //function to get and send the close time
       var dateTime = date+' '+time;
       const db = client.db(dbName);
       const col = db.collection("mongotroncol");
-      let personDocument = {
-        "name" : "app close time",
-        "start time" : dateTime,
-        "user name" : username
-      }
+      // let personDocument = {
+      //   "name" : "app close time",
+      //   "start time" : dateTime,
+      //   "user name" : username
+      // }
        // Insert a single document, wait for promise so we can read it back
-       const p = await col.insertOne(personDocument);
+       //const p = await col.insertOne(personDocument); //commenting this for a moment
        // Find one document
        //const myDoc = await col.findOne();
        // Print to the console
-       console.log(p);
+       //console.log(p);
+       console.log("printing start time id");
+       console.log(doc_id);
+       console.log("trying to retrive start time document here:")
+       const newdoc = await col.findOne({_id : ObjectId(doc_id)});
+       console.log(newdoc.starttime);
+       
 
 
   } catch (err) {
@@ -110,7 +118,7 @@ app.on('ready', showWindow);
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     // run().catch(console.dir);
-     run_close();   // calling this function to get and send the end time but getting this error :
+     run_close(doc_id);   // calling this function to get and send the end time but getting this error :
     // MongoNotConnectedError: MongoClient must be connected to perform this operation
     
     console.log("app is closed");

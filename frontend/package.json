@@ -1,23 +1,47 @@
 {
-  "name": "frontend",
+  "name": "plaiforcause",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ./"
+    "start": "electron ./",
+    "build": "electron-builder"
   },
   "keywords": [],
-  "author": "Bruno Krebs <krebs.bruno@gmail.com>",
+  "author": "Shubham Metkar & Jayesh Mahajan",
   "license": "MIT",
+  "build": {
+    "appId": "yourappid",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "uninstallDisplayName": "my-app-uninstaller",
+      "allowToChangeInstallationDirectory": true
+    },
+    "extraResources": [
+      "*.py"
+    ]
+  },
   "devDependencies": {
     "electron": "^9.0.0",
+    "electron-builder": "^22.11.7",
     "electron-rebuild": "^1.11.0"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "electron-browser-storage": "^1.0.7",
+    "electron-json-storage": "^4.5.0",
     "jwt-decode": "^2.2.0",
     "keytar": "^7.8.0",
     "mongodb": "^4.4.1",
+    "nodemon": "^2.0.15",
     "python-shell": "^3.0.1"
   }
 }

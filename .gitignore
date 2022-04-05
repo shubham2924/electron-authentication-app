@@ -62,3 +62,9 @@ typings/
 
 .idea/
 env-variables.json
+
+# *.exe
+
+frontend/dist/win-unpacked/plaiforcause.exe
+
+frontend/dist/plaiforcause Setup 1.0.0.exe

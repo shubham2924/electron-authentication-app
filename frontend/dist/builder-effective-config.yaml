@@ -1,0 +1,19 @@
+directories:
+  output: dist
+  buildResources: build
+appId: yourappid
+win:
+  target:
+    - nsis
+  icon: build/icon.ico
+nsis:
+  oneClick: false
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  uninstallDisplayName: my-app-uninstaller
+  allowToChangeInstallationDirectory: true
+extraResources:
+  - filter:
+      - '*.py'
+files: []
+electronVersion: 9.0.0

@@ -39,7 +39,7 @@ function opencvfn(){
 }
 
 function tetris_game(){
-  PythonShell.run('Tetris.py',null,  function (err) {
+  PythonShell.run('./renderers/python/tetris/Tetris.py',null,  function (err) {
     if (err) throw err;
     console.log('finished');
   });
@@ -51,13 +51,13 @@ function car_game(){
   });
 }
 function bubble_game(){
-  PythonShell.run('bubble.py',null,  function (err) {
+  PythonShell.run('./renderers/python/bubble/bubble.py',null,  function (err) {
     if (err) throw err;
     console.log('finished');
   });
 }
 function quiz_game(){
-  PythonShell.run('quiz.py',null,  function (err) {
+  PythonShell.run('./renderers/python/quiz/quiz.py',null,  function (err) {
     if (err) throw err;
     console.log('finished');
   });
