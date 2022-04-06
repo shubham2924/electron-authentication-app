@@ -12,6 +12,7 @@ webContents.on('dom-ready', () => {
   user_email =  document.getElementById('email').innerText = profile.email;
   //document.getElementById('success').innerText = 'You successfully used OpenID Connect and OAuth 2.0 to authenticate.';
   ipcRenderer.send("name",user_name);
+  ipcRenderer.send("profiledata", profile);
 });
 
 document.getElementById('logout').onclick = () => {

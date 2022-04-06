@@ -10,20 +10,21 @@ const dbName = "mongotrondb";
 ipcMain.on("name",(program, data)=>{
   // console.log(data);
   username = data;
+});
+ipcMain.on("profiledata",(program, data)=>{
+  console.log("logging profile data");
+  console.log(data);
 })
-// function getCloseTime(){
-// var today = new Date();
-// var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-// var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-// var dateTime = date+' '+time;
-//   console.log(dateTime);
-// }
+
 let doc_id="";
 async function run_start() {    //function to get and send the start time
   try {
       await client.connect();
       console.log("Connected correctly to server");
       var today = new Date();
+      const startts = Date.now();
+      console.log("logging start timestamp:");
+      console.log(startts);
       var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dateTime = date+' '+time;
@@ -36,8 +37,8 @@ async function run_start() {    //function to get and send the start time
       //   username = dataa;
       // })
       let personDocument = {
-        "name" : "app start time",
         "starttime" : dateTime,
+        "starttimestamp" : startts,
         // "user name" : username
       }
        // Insert a single document, wait for promise so we can read it back
@@ -63,6 +64,9 @@ async function run_close(doc_id) {      //function to get and send the close tim
       await client.connect();
       console.log("Connected correctly to server");
       var today = new Date();
+      const endts = Date.now();
+      console.log("logging end timestamp:");
+      console.log(endts);
       var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dateTime = date+' '+time;
@@ -84,7 +88,16 @@ async function run_close(doc_id) {      //function to get and send the close tim
        console.log("trying to retrive start time document here:")
        const newdoc = await col.findOne({_id : ObjectId(doc_id)});
        console.log(newdoc.starttime);
-       
+       const appstarttimestamp = newdoc.starttimestamp;
+       const finaltime = (endts - appstarttimestamp)/60000;
+       const endtime = Math.ceil(finaltime)
+       const finaluserdata = await col.updateOne({_id : ObjectId(doc_id)},
+       {$set: { 
+         "timeinmin" : endtime,
+         "endtimestamp" : endts,
+         "user name" : username
+        }}
+       );
 
 
   } catch (err) {
