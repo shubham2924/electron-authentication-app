@@ -5,18 +5,16 @@ from mediapipe.framework.formats import landmark_pb2
 import time
 import random
  
- 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 score=0
+time=120 #Added time variable
  
 x_enemy=random.randint(50,600)
 y_enemy=random.randint(50,400)
  
- 
- 
 def enemy():
-  global score,x_enemy,y_enemy
+  global score,x_enemy,y_enemy,time #Declared the scope
   #x_enemy=random.randint(50,600)
   #y_enemy=random.randint(50,400)
   cv2.circle(image, (x_enemy,y_enemy), 25, (0, 200, 0), 5)
@@ -43,6 +41,8 @@ with mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5) a
         color=(255,0,255)
         text=cv2.putText(image,"Score",(480,30),font,1,color,4,cv2.LINE_AA)
         text=cv2.putText(image,str(score),(590,30),font,1,color,4,cv2.LINE_AA)
+        text=cv2.putText(image,"Time",(30,30),font,1,color,4,cv2.LINE_AA)   #Plain text addition
+        text=cv2.putText(image,str(time),(130,30),font,1,color,4,cv2.LINE_AA)
  
         enemy()
  
@@ -65,6 +65,7 @@ with mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5) a
                 #print(point)
                 if point=='HandLandmark.INDEX_FINGER_TIP':
                  try:
+                     time -= 1;  #Decreasing the time
                      cv2.circle(image, (pixelCoordinatesLandmark[0], pixelCoordinatesLandmark[1]), 25, (0, 200, 0), 5)
                      #print(pixelCoordinatesLandmark[1])
                      if pixelCoordinatesLandmark[0]==x_enemy or pixelCoordinatesLandmark[0]==x_enemy+10 or pixelCoordinatesLandmark[0]==x_enemy-10:
@@ -80,14 +81,19 @@ with mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5) a
                         enemy()
                  except:
                   pass
-        cv2.namedWindow('Hand Tracking bubble popper game', cv2.WINDOW_NORMAL)
-        cv2.moveWindow("Hand Tracking bubble popper game", 100, 50)
-        cv2.imshow('Hand Tracking bubble popper game', image)
+        cv2.namedWindow('Hand Tracking', cv2.WINDOW_NORMAL)
+        cv2.moveWindow("Hand Tracking", 100, 50)
+        cv2.imshow('Hand Tracking', image)
         #time.sleep(1)
  
-        if cv2.waitKey(10) & 0xFF == ord('q'):
+        if cv2.waitKey(10) & time == 0:  #Condition to check time
             print(score)
+            img=cv2.putText(image,f"Your final score: {score}",(200,300),font,1,color,4,cv2.LINE_AA)
+            #img=cv2.putText(image,str(score),(590,30),font,1,color,4,cv2.LINE_AA)
+            cv2.imshow("Img", img)
+            cv2.waitKey(5000)
             break
- 
-video.release()
-cv2.destroyAllWindows()
+
+#cv2.imshow("Img", img)
+#video.release()
+#cv2.destroyAllWindows()
