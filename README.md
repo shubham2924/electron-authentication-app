@@ -27,7 +27,7 @@ This project uses the following technologies:
 To run this project, follow these steps:
 
 1. Clone this repository (`git clone https://github.com/shubham2924/electron-authentication-app.git`)
-2. Move to the `electron-openid-oauth/frontend`  folder in your machine and run `npm install`
+2. Move to the `electron-openid-oauth/backend`  folder in your machine and run `npm install`
 3. [Register the API with Auth0](https://auth0.com/blog/securing-electron-applications-with-openid-connect-and-oauth-2/#Call-a-Secure-API-within-Electron)
 4. Rename the `env-variables.json.template` config file into `env-variables.json` and fill the required Auth0 parameters
 5. Launch the API by running `npm start`
