@@ -11,11 +11,26 @@ document.getElementById("bubble-game").addEventListener("click", bubble_game);
 document.getElementById("quiz-game").addEventListener("click", quiz_game);
 document.getElementById("squid-game").addEventListener("click", squid_game);
 document.getElementById("flappy-game").addEventListener("click", flappy_game);
+
 //import {PythonShell} from 'python-shell';
 // PythonShell = require('python-shell');
 // var path = require("path")
+const button1 = document.getElementById('reward');
+button1.addEventListener('click', () => {
+  createBrowserWindow1();
+});
 
+function createBrowserWindow1() {
+  const remote = require('electron').remote;
+  const BrowserWindow = remote.BrowserWindow;
+  const win = new BrowserWindow({
+    height: 600,
+    width: 1000,
+    autoHideMenuBar: true
+  });
 
+ win.loadFile('./renderers/reward.html');
+}
 function opencvfn(){
     // PythonShell.runString('x=1+1;print(x)', null, function (err) {
     //     if (err) throw err;

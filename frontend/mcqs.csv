@@ -1,7 +1,5 @@
 Question,Choice1,Choice2,Choice3,Choice4,Answer
-What is the height in an HD Image?,480,720,1080,240,2
-How many corners does a hexagon have?,Three,Four,Five,Six,4
-What is the total number of continents in the world?,Four,Five,Six,Seven,4
-What is the variable type of a? a = 'yes',Integer,Float,String,Character,3
-How many oceans are in the world?,Two ,Three,Four,Five,4
-Which is the high level representation of VLSI design?, problem statement,logic design,HDL program,functional design,1
+Which state has the largest area?,Maharashtra,Madhya Pradesh,Uttar Pradesh,Rajasthan,4
+Which city is known as 'Silicon Valley of India'?,Mumbai,Hyderabad,Guragon,Bangalore,4
+India won its first Olympic hockey gold in...?,1928,1932,1936,1948,1
+The National Song of India was composed by?,Rabindranath Tagore,B.C. Chatterji,Iqbal,Jai Shankar Prasad,2

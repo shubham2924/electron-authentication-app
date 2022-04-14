@@ -78,6 +78,7 @@ while True:
         score = round((score / qTotal) * 100, 2)
         img, _ = cvzone.putTextRect(img, "Quiz Completed", [250, 300], 2, 2, offset=50, border=5)
         img, _ = cvzone.putTextRect(img, f'Your Score: {score}%', [700, 300], 2, 2, offset=50, border=5)
+        img, _ = cvzone.putTextRect(img, "Answer Key: 1) Rajasthan 2)Bangalore 3)1928 4)B.C. Chatterji", [50, 500], 2, 2, offset=50, border=5)
 
     # Draw Progress Bar
     barValue = 150 + (950 // qTotal) * qNo

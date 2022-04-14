@@ -11,6 +11,10 @@ ipcMain.on("name",(program, data)=>{
   // console.log(data);
   username = data;
 });
+ipcMain.on("email",(program, data)=>{
+  // console.log(data);
+  useremail = data;
+});
 ipcMain.on("profiledata",(program, data)=>{
   console.log("logging profile data");
   console.log(data);
@@ -95,7 +99,8 @@ async function run_close(doc_id) {      //function to get and send the close tim
        {$set: { 
          "timeinmin" : endtime,
          "endtimestamp" : endts,
-         "user name" : username
+         "user name" : username,
+         "useremailid" : useremail,
         }}
        );
 

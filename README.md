@@ -1,7 +1,7 @@
-# playAiforCause - Desktop App to play gesture based games for social cause
+# PlAiforCause - Desktop App to play gesture based games for social cause
 ---
 ### PROBLEM DEFINITION :
-- Almost every nation has a considerable amount of underprivileged communities, these people fame so many problems in their lives due to lack of proper education, food, financial stability, etc.
+- Almost every nation has a considerable amount of underprivileged communities, these people face so many problems in their lives due to lack of proper education, food, financial stability, etc.
 - So NGO makes these people lives better by fulfilling or providing them their essential needs.However, NGOs at current face several problems to which they are not always prepared for.
 - Lack of Funds: This is the most common problem NGOs need to constantly acquire funds. In some cases, NGOs become complacent and simply wait for donations or previous supporters to contact them. This practice will in no way contribute to the successes of an NGO. Although partner organizations and supporters will want to continually support an NGOs causes, they may possibly see more potential in other organizations and decide to fund others instead. Not having enough funds not only pose difficulties in accomplishing projects, but it also puts NGOs in jeopardy given that there are also many operational costs.
 
