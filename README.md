@@ -22,6 +22,10 @@ This project uses the following technologies:
 - [pygame](https://www.pygame.org/news)
 - [NoSQL-database](https://www.mongodb.com/)
 - [building-and-packaging](https://github.com/electron-userland/electron-builder/)
+
+### working demonstration video:
+https://drive.google.com/file/d/1qkG6PtsfrNdHloqnm3tJJmMyYR2altNR/view?usp=sharing
+
 ### Running the Demo
 
 To run this project, follow these steps:

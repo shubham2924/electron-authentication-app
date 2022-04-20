@@ -25,7 +25,7 @@ function createBrowserWindow1() {
   const BrowserWindow = remote.BrowserWindow;
   const win = new BrowserWindow({
     height: 600,
-    width: 1000,
+    width: 600,
     autoHideMenuBar: true
   });
 

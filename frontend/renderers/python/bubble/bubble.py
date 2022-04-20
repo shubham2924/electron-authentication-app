@@ -8,7 +8,7 @@ import random
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 score=0
-time=120 #Added time variable
+time=300 #Added time variable
  
 x_enemy=random.randint(50,600)
 y_enemy=random.randint(50,400)

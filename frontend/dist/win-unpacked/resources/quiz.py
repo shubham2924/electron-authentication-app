@@ -54,10 +54,10 @@ while True:
     if qNo < qTotal:
         mcq = mcqList[qNo]
 
-        img, bbox = cvzone.putTextRect(img, mcq.question, [300, 100], 2, 2, offset=50, border=5)
-        img, bbox1 = cvzone.putTextRect(img, mcq.choice1, [100, 250], 2, 2, offset=50, border=5)
+        img, bbox = cvzone.putTextRect(img, mcq.question, [180, 100], 2, 2, offset=50, border=5)
+        img, bbox1 = cvzone.putTextRect(img, mcq.choice1, [200, 250], 2, 2, offset=50, border=5)
         img, bbox2 = cvzone.putTextRect(img, mcq.choice2, [900, 250], 2, 2, offset=50, border=5)
-        img, bbox3 = cvzone.putTextRect(img, mcq.choice3, [100, 500], 2, 2, offset=50, border=5)
+        img, bbox3 = cvzone.putTextRect(img, mcq.choice3, [200, 500], 2, 2, offset=50, border=5)
         img, bbox4 = cvzone.putTextRect(img, mcq.choice4, [900, 500], 2, 2, offset=50, border=5)
 
         if hands:
@@ -78,6 +78,7 @@ while True:
         score = round((score / qTotal) * 100, 2)
         img, _ = cvzone.putTextRect(img, "Quiz Completed", [250, 300], 2, 2, offset=50, border=5)
         img, _ = cvzone.putTextRect(img, f'Your Score: {score}%', [700, 300], 2, 2, offset=50, border=5)
+        img, _ = cvzone.putTextRect(img, "Answer Key: 1) Rajasthan 2)Bangalore 3)1928 4)B.C. Chatterji", [50, 500], 2, 2, offset=50, border=5)
 
     # Draw Progress Bar
     barValue = 150 + (950 // qTotal) * qNo
@@ -85,7 +86,7 @@ while True:
     cv2.rectangle(img, (150, 600), (1100, 650), (255, 0, 255), 5)
     img, _ = cvzone.putTextRect(img, f'{round((qNo / qTotal) * 100)}%', [1130, 635], 2, 2, offset=16)
 
-    cv2.imshow("Img", img)
+    cv2.imshow("Quiz Game", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
