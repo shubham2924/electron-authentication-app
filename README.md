@@ -42,6 +42,6 @@ To run this project, follow these steps:
 
 <!-- The following is a screenshot of the Electron application screen after logging in and clicking the *Get Private Message* button: -->
 
-![The Desktop App](./output.png)
+![The Desktop App](output.png)
 
 

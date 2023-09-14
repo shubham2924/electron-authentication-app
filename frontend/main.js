@@ -99,8 +99,8 @@ async function run_close(doc_id) {      //function to get and send the close tim
        {$set: { 
          "timeinmin" : endtime,
          "endtimestamp" : endts,
-         "user name" : username,
-         "useremailid" : useremail,
+        //  "user name" : username,
+        //  "useremailid" : useremail,
         }}
        );
 
