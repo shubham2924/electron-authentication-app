@@ -23,8 +23,8 @@ This project uses the following technologies:
 - [NoSQL-database](https://www.mongodb.com/)
 - [building-and-packaging](https://github.com/electron-userland/electron-builder/)
 
-### working demonstration video:
-https://drive.google.com/file/d/1qkG6PtsfrNdHloqnm3tJJmMyYR2altNR/view?usp=sharing
+### Product & technology overview and working demonstration video:
+https://drive.google.com/file/d/1X6Nl2CN5Bnzc3CpzLyz8yctc8shHHLRn/view?usp=sharing
 
 ### Running the Demo
 
